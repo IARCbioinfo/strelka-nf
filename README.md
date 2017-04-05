@@ -28,10 +28,11 @@ This shows details about optional and mandatory parameters provided by the user.
 #### pairs.txt format
 The pairs.txt file is where you can define pairs of bam to analyse with strelka. It's a tabular file with 2 columns normal and tumor.
 
-normal		tumor
-normal1.bam	tumor2.bam
-normal2.bam tumor2.bam
-normal3.bam	tumor3.bam
+| normal | tumor |
+| ----------- | ---------- |
+| normal1.bam | tumor2.bam |
+| normal2.bam | tumor2.bam |
+| normal3.bam | tumor3.bam |
 
 #### Global parameters
 ```--strelka```, ```--config```, and ```--ref``` are mandatory parameters but can be defined in your nextflow config file (```~/.nextflow/config``` or ```config``` in the working directory) and so not set as inputs.
