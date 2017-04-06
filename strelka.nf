@@ -25,7 +25,7 @@ if (params.help) {
     log.info 'Mandatory arguments:'
     log.info '    --bam_folder         FOLDER                  Folder containing BAM files to be called.'
     log.info '    --tn_file            FILE                    Tab delimited text file with two columns called tumor and normal'
-	log.info '                                                 where each line contains the path of two matched BAM files.'
+    log.info '                                                 where each line contains the path of two matched BAM files.'
     log.info '    --ref                FILE (with index)       Reference fasta file.'
     log.info '    --strelka            PATH                    configureStrelkaWorkflow.pl explicit path.'
     log.info '    --config             FILE                    strelka configuration file.'   
@@ -41,17 +41,17 @@ strelka = params.strelka + "./configureStrelkaWorkflow.pl"
 fasta_ref = file(params.ref)
 fasta_ref_fai = file( params.ref+'.fai' )
 
-pairs = Channel.fromPath(params.data).splitCsv(header: true, sep: '\t', strip: true)
+pairs = Channel.fromPath(params.tn_file).splitCsv(header: true, sep: '\t', strip: true)
 .map{ row -> [ file(params.bam_path + "/" + row.tumor), file(params.bam_path + "/" + row.tumor+'.bai'), file(params.bam_path + "/" + row.normal), file(params.bam_path + "/" + row.normal+'.bai') ] }
 
 
 process run_strelka {
 
-  publishDir params.out_folder, mode: 'move'
+  publishDir params.out, mode: 'move'
 
   input:
   file pair from pairs
-  var strelka
+  val strelka
 
   output:
   file 'strelkaAnalysis/results/*.vcf' into vcffiles
