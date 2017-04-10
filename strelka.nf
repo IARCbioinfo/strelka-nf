@@ -59,11 +59,12 @@ process run_strelka {
   shell:
   '''
   !{strelka} --tumor !{pair[0]} --normal !{pair[2]} --ref=!{params.ref} --config !{params.config}
-  cd ./strelkaAnalysis
+  cd strelkaAnalysis
   make -j !{params.ncpu}
+  cd results
   mv all.somatic.indels.vcf !{pair[0]}_vs_!{pair[2]}.all.somatic.indels.vcf
-  mv all.somatic.snvs.vcf !{pair[0]}_vs!_{pair[2]}.all.somatic.snvs.vcf
-  mv passed.somatic.indels.vcf !{pair[0]}_vs!_{pair[2]}.passed.somatic.indels.vcf
-  mv passed.somatic.snvs.vcf !{pair[0]}_vs!_{pair[2]}.passed.somatic.snvs.vcf
+  mv all.somatic.snvs.vcf !{pair[0]}_vs_!{pair[2]}.all.somatic.snvs.vcf
+  mv passed.somatic.indels.vcf !{pair[0]}_vs_!{pair[2]}.passed.somatic.indels.vcf
+  mv passed.somatic.snvs.vcf !{pair[0]}_vs_!{pair[2]}.passed.somatic.snvs.vcf
   '''
 }
