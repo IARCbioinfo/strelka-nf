@@ -9,9 +9,9 @@ Somatic variant calling workflow for matched tumor-normal samples
 ## Dependencies
 
 1. This pipeline is based on [nextflow](https://www.nextflow.io). As we have several nextflow pipelines, we have centralized the common information in the [IARC-nf](https://github.com/IARCbioinfo/IARC-nf) repository. Please read it carefully as it contains essential information for the installation, basic usage and configuration of nextflow and our pipelines.
-2. Install [Strelka.] (https://sites.google.com/site/strelkasomaticvariantcaller/home/strelka-workflow-installation)
+2. Install [Strelka.](https://sites.google.com/site/strelkasomaticvariantcaller/home/strelka-workflow-installation)
 
-You can avoid installing all the external software by only installing Docker. See the [IARC-nf]((https://github.com/IARCbioinfo/IARC-nf) repository for more information.
+You can avoid installing all the external software by only installing Docker. See the [IARC-nf](https://github.com/IARCbioinfo/IARC-nf) repository for more information.
 
 
 ## Input
@@ -77,6 +77,4 @@ Strelka is an analysis package designed to detect somatic SNVs and small indels 
 
 ## References
 
-Strelka: Accurate somatic small-variant calling from sequenced tumor-normal sample pairs.
-Christopher T. Saunders; Wendy Wong; Sajani Swamy; Jennifer Becq; Lisa J. Murray; R. Keira Cheetham
-Bioinformatics 2012; doi: 10.1093/bioinformatics/bts271
+[Strelka: Accurate somatic small-variant calling from sequenced tumor-normal sample pairs. Christopher T. Saunders; Wendy Wong; Sajani Swamy; Jennifer Becq; Lisa J. Murray; R. Keira Cheethamn Bioinformatics 2012; doi: 10.1093/bioinformatics/bts271](https://academic.oup.com/bioinformatics/article/28/14/1811/218573/Strelka-accurate-somatic-small-variant-calling)
