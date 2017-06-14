@@ -1,0 +1,23 @@
+machine:
+  services:
+    - docker
+  post:
+    - wget -qO- get.nextflow.io | bash ; chmod 755 nextflow ; sudo ln -s ~/nextflow /usr/local/bin/ ; sudo apt-get install graphviz
+test:
+  override:
+    - |
+      cd ~/strelka-nf
+      docker build -t iarcbioinfo/strelka-nf .
+    - | 
+      cd
+      nextflow run ~/strelka-nf/script.nf --help
+    - | 
+      cd
+      nextflow run ~/strelka-nf/script.nf -with-docker iarcbioinfo/strelka-nf -with-dag dag.html
+      nextflow run ~/strelka-nf/script.nf -with-docker iarcbioinfo/strelka-nf -with-dag dag.png
+      cp dag.html dag.png ~/strelka-nf/
+deployment:
+  git:
+    branch: [master, dev]
+    commands:
+- chmod +x deploy.sh && ./deploy.sh
