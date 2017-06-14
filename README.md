@@ -1,7 +1,7 @@
 # Strelka-nf
 ## Variant Calling with Strelka pipeline
 
-![Workflow representation](strelka-nf.png)
+![Workflow representation](strelka-nf.svg)
 
 ## Description
 Somatic variant calling workflow for matched tumor-normal samples
