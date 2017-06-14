@@ -1,51 +1,82 @@
-## strelka-nf
-### Strelka pipeline with Nextflow
+# Strelka-nf
+## Variant Calling with Strelka pipeline
 
-#### Dependencies
-1. Install [Strelka](https://sites.google.com/site/strelkasomaticvariantcaller/home/strelka-workflow-installation).
-2. Install [nextflow](http://www.nextflow.io/).
+![Workflow representation](strelka-nf.png)
 
-	```bash
-	curl -fsSL get.nextflow.io | bash
-	```
-	And move it to a location in your `$PATH` (`/usr/local/bin` for example here):
-	```bash
-	sudo mv nextflow /usr/local/bin
-	```
+## Description
+Somatic variant calling workflow for matched tumor-normal samples
 
-#### Execution
-Nextflow seamlessly integrates with GitHub hosted code repositories:
+## Dependencies
 
-`nextflow run iarcbioinfo/strelka-nf --tn_file pairs.txt --bam_path bam_folder/ --ref ref.fasta --strelka path_to_strelka --config strelka_config.ini`
+1. This pipeline is based on [nextflow](https://www.nextflow.io). As we have several nextflow pipelines, we have centralized the common information in the [IARC-nf](https://github.com/IARCbioinfo/IARC-nf) repository. Please read it carefully as it contains essential information for the installation, basic usage and configuration of nextflow and our pipelines.
+2. Install [Strelka.] (https://sites.google.com/site/strelkasomaticvariantcaller/home/strelka-workflow-installation)
 
-#### Help section
-You can print the help manual by providing `--help` in the execution command line:
-```bash
-nextflow run iarcbioinfo/strelka-nf --help
-```
-This shows details about optional and mandatory parameters provided by the user.  
+You can avoid installing all the external software by only installing Docker. See the [IARC-nf]((https://github.com/IARCbioinfo/IARC-nf) repository for more information.
 
-#### pairs.txt format
-The pairs.txt file is where you can define pairs of bam to analyse with strelka. It's a tabular file with 2 columns normal and tumor.
 
-| normal | tumor |
-| ----------- | ---------- |
-| normal1.bam | tumor2.bam |
-| normal2.bam | tumor2.bam |
-| normal3.bam | tumor3.bam |
+## Input
+  | Type           | Description                                                                                         |
+  |----------------|-----------------------------------------------------------------------------------------------------|
+  | --tn_pair      | Tab delimited text file with two columns called normal and tumor. Each line is a pair of bam files. |
+  | --input_folder | Folder containing BAM files.                                                                        |
 
-#### Global parameters
-```--strelka```, ```--config```, and ```--ref``` are mandatory parameters but can be defined in your nextflow config file (```~/.nextflow/config``` or ```config``` in the working directory) and so not set as inputs.
+  Specify the test files location
 
-The following is an example of config part defining this:
-```bash
-profiles {
+## Parameters
 
-        standard {
-                params {
-                   ref = '~/Documents/Data/references/hg19.fasta'
-                   strelka = '~/bin/strelka/1.0.15/bin/'
-                   config = '~/bin/strelka/1.0.15/bin/strelka_config_bwa_default.ini'
-                }
-        }
-```
+  * #### Mandatory
+| Name      | Example value                                       | Description                               |
+|-----------|-----------------------------------------------------|-------------------------------------------|
+| --ref     | hg19.fa                                             | reference genome in fasta format          |
+| --strelka | ~/strelka/1.0.15/bin/                               | configureStrelkaWorkflow.pl explicit path |                          |
+| --config  | ~/strelka/1.0.15/etc/strelka_config_bwa_default.ini | configuration file                        |
+
+  * #### Optional
+| Name            | Default value  | Description          |
+|-----------------|----------------|----------------------|
+| --cpu           | 2              | number of cpu to use |
+| --output_folder | strelka_ouptut | output folder name   |
+
+  * #### Flags
+
+Flags are special parameters without value.
+
+| Name      | Description     |
+|-----------|-----------------|
+| --help    | Display help |
+
+
+## Usage
+  ```
+  nextflow run iarcbioinfo/strelka-nf --ref hg38.fa --tn_pairs pairs.txt --input_folder path/to/bam/ --strelka path/to/strelka/ --config strelka/1.0.15/etc/strelka_config_bwa_default.ini
+  ```
+
+## Output
+  | Type                      | Description                |
+  |---------------------------|----------------------------|
+  | all.somatic.indels.vcf    | somatics indels            |
+  | all.somatic.snvs.vcf      | somatics variants          |
+  | passed.somatic.indels.vcf | filtered somatics indels   |
+  | passed.somatic.snvs.vcf   | filtered somatics variants |
+
+
+## Detailed description
+Strelka is an analysis package designed to detect somatic SNVs and small indels from the aligned sequencing reads of matched tumor-normal samples.
+1. configureStrelkaWorkflow.pl generate a MAKEFILE
+2. make run the analysis
+
+## Directed Acyclic Graph
+
+
+## Contributions
+
+  | Name              | Email                  | Description                                                         |
+  |-------------------|------------------------|---------------------------------------------------------------------|
+  | Cahais Vincent    | vincent.cahais@iarc.fr | Developer to contact for support (link to specific gitter chatroom) |
+
+
+## References
+
+Strelka: Accurate somatic small-variant calling from sequenced tumor-normal sample pairs.
+Christopher T. Saunders; Wendy Wong; Sajani Swamy; Jennifer Becq; Lisa J. Murray; R. Keira Cheetham
+Bioinformatics 2012; doi: 10.1093/bioinformatics/bts271

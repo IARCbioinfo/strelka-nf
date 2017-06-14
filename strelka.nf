@@ -47,7 +47,7 @@ if (params.help) {
     log.info "Mandatory arguments:"
     log.info "--ref                  FILE                 Genome reference file"
     log.info "--tn_pairs             FILE                 Tab delimited text file with two columns called normal and tumor"
-    log.info "--input_folder         FOLDER               Folder containing BAM files to analyse"
+    log.info "--input_folder         FOLDER               Folder containing BAM files"
     log.info "--strelka              PATH                 configureStrelkaWorkflow.pl explicit path"
     log.info "--config               FILE                 strelka configuration file"
     log.info ""
