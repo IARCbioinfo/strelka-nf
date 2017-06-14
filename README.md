@@ -51,7 +51,7 @@ Flags are special parameters without value.
   nextflow run iarcbioinfo/strelka-nf --ref hg38.fa --tn_pairs pairs.txt --input_folder path/to/bam/ --strelka path/to/strelka/ --config strelka/1.0.15/etc/strelka_config_bwa_default.ini
   ```
   
-## test
+## Test
   ```
   git clone https://github.com/IARCbioinfo/data_test.git
   
