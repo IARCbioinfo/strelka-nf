@@ -3,7 +3,7 @@
 
 params.help           = null
 params.ref            = null
-params.strelka        = null
+params.strelka        = "./"
 params.config         = null
 params.bam_path       = "./"
 params.tn_file        = null
@@ -20,17 +20,17 @@ if (params.help) {
     log.info '--------------------------------------------------'
     log.info ''
     log.info 'Usage: '
-    log.info 'nextflow run strelka.nf --tn_file pairs.txt --bam_folder BAM/ --ref ref.fasta --out out_PATH/ --strelka strelka_PATH/ --config strelka_config.ini'
+    log.info 'nextflow run strelka.nf --tn_file pairs.txt --bam_folder BAM/ --ref ref.fasta --out out_PATH/ --config strelka_config.ini'
     log.info ''
     log.info 'Mandatory arguments:'
     log.info '    --bam_folder         FOLDER                  Folder containing BAM files to be called.'
     log.info '    --tn_file            FILE                    Tab delimited text file with two columns called tumor and normal'
     log.info '                                                 where each line contains the path of two matched BAM files.'
     log.info '    --ref                FILE (with index)       Reference fasta file.'
-    log.info '    --strelka            PATH                    configureStrelkaWorkflow.pl explicit path.'
     log.info '    --config             FILE                    strelka configuration file.'   
     log.info 'Optional arguments:'
     log.info '    --ncpu               INTEGER                 Number of cpu to use.'
+    log.info '    --strelka            PATH                    configureStrelkaWorkflow.pl explicit path.'
     log.info ''
     log.info ''
     exit 1
