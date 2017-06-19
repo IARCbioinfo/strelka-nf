@@ -14,7 +14,14 @@ RUN mkdir -p /var/cache/apt/archives/partial && \
   # Install dependences
   DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y git
   # add other dependences necessary
-  apt-get install -y wget && gcc && g++ && make && zlib1g-dev && bzip2 && python && rsync 
+  apt-get install wget -y  
+  apt-get install gcc -y
+  apt-get install g++ -y
+  apt-get install make -y
+  apt-get install zlib1g-dev -y
+  apt-get install python -y
+  apt-get install bzip2 -y
+  apt-get install rsync -y
   
   # HERE INSTALL NECESSARY SOFTWARE
   # Example
