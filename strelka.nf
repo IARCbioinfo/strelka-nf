@@ -68,3 +68,4 @@ process run_strelka {
   mv passed.somatic.snvs.vcf !{pair[0]}_vs_!{pair[2]}.passed.somatic.snvs.vcf
   '''
 }
+
