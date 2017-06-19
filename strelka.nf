@@ -33,7 +33,7 @@ if (params.help) {
     log.info '    --strelka            PATH                    configureStrelkaWorkflow.pl explicit path.'
     log.info ''
     log.info ''
-    exit 1
+    exit 0
 }
 
 strelka = params.strelka + "./configureStrelkaWorkflow.pl"
