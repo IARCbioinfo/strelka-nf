@@ -6,7 +6,7 @@ machine:
 test:
   override:
     - |
-      cd ~/strelka-nf
+      cd ~/template-nf
       docker build -t iarcbioinfo/strelka-nf .
     - | 
       cd
@@ -20,4 +20,4 @@ deployment:
   git:
     branch: [master, dev]
     commands:
-- chmod +x deploy.sh && ./deploy.sh
+      - chmod +x deploy.sh && ./deploy.sh
