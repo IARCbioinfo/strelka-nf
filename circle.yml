@@ -11,11 +11,11 @@ test:
     - | 
       cd
       nextflow run ~/strelka-nf/strelka.nf --help
-    - | 
-      cd
-      nextflow run ~/strelka-nf/strelka.nf -with-docker iarcbioinfo/strelka-nf -with-dag dag.html
-      nextflow run ~/strelka-nf/strelka.nf -with-docker iarcbioinfo/strelka-nf -with-dag dag.png
-      cp dag.html dag.png ~/strelka-nf/
+    #- | 
+      #cd
+      #nextflow run ~/strelka-nf/strelka.nf -with-docker iarcbioinfo/strelka-nf -with-dag dag.html
+      #nextflow run ~/strelka-nf/strelka.nf -with-docker iarcbioinfo/strelka-nf -with-dag dag.png
+      #cp dag.html dag.png ~/strelka-nf/
 deployment:
   git:
     branch: [master, dev]
