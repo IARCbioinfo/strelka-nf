@@ -34,7 +34,7 @@ RUN mkdir -p /var/cache/apt/archives/partial && \
   tar xzf strelka_workflow-1.0.15.tar.gz && \
   cd strelka_workflow-1.0.15 && \
   ./configure --prefix=/usr/local/ && \
-  make
+  make && \
   
   # Remove unnecessary dependences
   apt-get remove -y \
