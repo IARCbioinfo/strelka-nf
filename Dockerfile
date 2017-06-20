@@ -12,7 +12,7 @@ RUN mkdir -p /var/cache/apt/archives/partial && \
 	apt-get update -y && \
 
   # Install dependences
-  DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y git \
+  apt-get install --no-install-recommends -y git \
   # add other dependences necessary
   wget \
   gcc \
