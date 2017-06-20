@@ -37,9 +37,9 @@ RUN mkdir -p /var/cache/apt/archives/partial && \
   make
   
   # Remove unnecessary dependences
-  DEBIAN_FRONTEND=noninteractive apt-get remove -y \
+  apt-get remove -y \
   git && \
 
   # Clean
-  DEBIAN_FRONTEND=noninteractive apt-get autoremove -y && \
+  apt-get autoremove -y && \
 apt-get clean
