@@ -21,7 +21,8 @@ RUN mkdir -p /var/cache/apt/archives/partial && \
   zlib1g-dev \
   python \
   bzip2 \
-  rsync && \
+  rsync \
+  gnupg2 && \
   
   # HERE INSTALL NECESSARY SOFTWARE
   # Example
