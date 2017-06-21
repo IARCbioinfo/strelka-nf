@@ -7,7 +7,7 @@ machine:
 test:
   override:
     - |
-      cd ~/template-nf
+      cd ~/strelka-nf
       docker build -t iarcbioinfo/strelka-nf .
     - | 
       cd
