@@ -4,7 +4,7 @@ FROM debian:latest
 # File Author / Maintainer
 MAINTAINER cahaisv <cahaisv@iarc.fr>
 
-RUN apt-get clean &&
+RUN apt-get clean && \
         apt-get update -y && \
 	apt-get install gnupg && \
 	mkdir -p /var/cache/apt/archives/partial && \
@@ -43,7 +43,6 @@ RUN apt-get clean &&
   apt-get remove -y \
   git && \
 
-  # Clean
   # Clean
   DEBIAN_FRONTEND=noninteractive apt-get autoremove -y && \
   apt-get clean
