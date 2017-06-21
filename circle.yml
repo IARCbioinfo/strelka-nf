@@ -3,6 +3,7 @@ machine:
     - docker
   post:
     - wget -qO- get.nextflow.io | bash ; chmod 755 nextflow ; sudo ln -s ~/nextflow /usr/local/bin/ ; sudo apt-get install graphviz
+    - git clone --depth=1 https://github.com/iarcbioinfo/data_test.git
   override:
     - |
       cd ~/strelka-nf
@@ -22,4 +23,4 @@ deployment:
   git:
     branch: [master, dev]
     commands:
-      - chmod +x deploy.sh && ./deploy.sh
+    - chmod +x deploy.sh && ./deploy.sh
