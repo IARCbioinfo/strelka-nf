@@ -3,11 +3,15 @@ machine:
     - docker
   post:
     - wget -qO- get.nextflow.io | bash ; chmod 755 nextflow ; sudo ln -s ~/nextflow /usr/local/bin/ ; sudo apt-get install graphviz
+    - git clone --depth=1 https://github.com/iarcbioinfo/data_test.git
 test:
   override:
     - |
       cd ~/template-nf
       docker build -t iarcbioinfo/strelka-nf .
+    - | 
+      cd
+      nextflow run ~/strelka-nf/strelka.nf --help
     - | 
       cd
       nextflow run ~/strelka-nf/strelka.nf --help
