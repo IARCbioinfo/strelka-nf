@@ -4,7 +4,10 @@ FROM debian:latest
 # File Author / Maintainer
 MAINTAINER cahaisv <cahaisv@iarc.fr>
 
-RUN mkdir -p /var/cache/apt/archives/partial && \
+RUN apt-get clean &&
+        apt-get update -y && \
+	apt-get install gnupg && \
+	mkdir -p /var/cache/apt/archives/partial && \
 	touch /var/cache/apt/archives/lock && \
 	chmod 640 /var/cache/apt/archives/lock && \
 	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F76221572C52609D && \
@@ -21,8 +24,7 @@ RUN mkdir -p /var/cache/apt/archives/partial && \
   zlib1g-dev \
   python \
   bzip2 \
-  rsync \
-  gnupg2 && \
+  rsync && \
   
   # HERE INSTALL NECESSARY SOFTWARE
   # Example
