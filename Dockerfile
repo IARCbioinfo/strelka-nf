@@ -44,5 +44,5 @@ RUN apt-get clean && \
   git && \
 
   # Clean
-  DEBIAN_FRONTEND=noninteractive apt-get autoremove -y && \
+  apt-get autoremove -y && \
   apt-get clean
