@@ -15,7 +15,8 @@ RUN apt-get clean && \
 	apt-get update -y && \
 
   # Install dependences
-  #apt-get install --no-install-recommends -y git \
+  apt-get install --no-install-recommends -y \
+  git && \
   # add other dependences necessary
   #wget \
   #gcc \
