@@ -34,7 +34,6 @@ RUN apt-get clean && \
   # cd **Directory** && \
   # make && \
   # make install && \
-  cd && \
   wget ftp://strelka:%27%27@ftp.illumina.com/v1-branch/v1.0.15/strelka_workflow-1.0.15.tar.gz && \
   tar xzf strelka_workflow-1.0.15.tar.gz && \
   cd strelka_workflow-1.0.15 && \
