@@ -7,12 +7,12 @@ MAINTAINER cahaisv <cahaisv@iarc.fr>
 RUN apt-get clean && \
         apt-get update -y && \
 	#apt-get install gnupg && \
-	#mkdir -p /var/cache/apt/archives/partial && \
-	#touch /var/cache/apt/archives/lock && \
-	#chmod 640 /var/cache/apt/archives/lock && \
-	#apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F76221572C52609D && \
-	#apt-get clean && \
-	#apt-get update -y && \
+	mkdir -p /var/cache/apt/archives/partial && \
+	touch /var/cache/apt/archives/lock && \
+	chmod 640 /var/cache/apt/archives/lock && \
+	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F76221572C52609D && \
+	apt-get clean && \
+	apt-get update -y && \
 	
   # Install dependences
   DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
@@ -27,7 +27,7 @@ RUN apt-get clean && \
   bzip2 \
   rsync && \
   
-  apt-get clean && \
+  DEBIAN_FRONTEND=noninteractive apt-get clean && \
   apt-get update -y && \
 
   # HERE INSTALL NECESSARY SOFTWARE
