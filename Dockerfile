@@ -11,8 +11,8 @@ RUN apt-get clean && \
 	touch /var/cache/apt/archives/lock && \
 	chmod 640 /var/cache/apt/archives/lock && \
 	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F76221572C52609D && \
-	apt-get clean && \
-	apt-get update -y && \
+	#apt-get clean && \
+	#apt-get update -y && \
 	
   # Install dependences
   DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
@@ -41,7 +41,7 @@ RUN apt-get clean && \
   tar xzf strelka_workflow-1.0.15.tar.gz && \
   cd strelka_workflow-1.0.15 && \
   ./configure --prefix=/usr/local/ && \
-  #make && \
+  make && \
   
   # Remove unnecessary dependences
   DEBIAN_FRONTEND=noninteractive apt-get remove -y \
