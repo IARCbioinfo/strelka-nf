@@ -6,17 +6,17 @@ MAINTAINER cahaisv <cahaisv@iarc.fr>
 
 RUN apt-get clean && \
         apt-get update -y && \
-	apt-get install gnupg && \
+	#apt-get install gnupg && \
 	#mkdir -p /var/cache/apt/archives/partial && \
 	#touch /var/cache/apt/archives/lock && \
 	#chmod 640 /var/cache/apt/archives/lock && \
 	#apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F76221572C52609D && \
-	apt-get clean && \
-	apt-get update -y && \
+	#apt-get clean && \
+	#apt-get update -y && \
 
   # Install dependences
-  apt-get install --no-install-recommends -y \
-  git && \
+  #apt-get install --no-install-recommends -y \
+  #git && \
   # add other dependences necessary
   #wget \
   #gcc \
@@ -41,8 +41,8 @@ RUN apt-get clean && \
   #make && \
   
   # Remove unnecessary dependences
-  apt-get remove -y \
-  git && \
+  #apt-get remove -y \
+  #git && \
 
   # Clean
   apt-get autoremove -y && \
