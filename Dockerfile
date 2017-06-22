@@ -15,7 +15,7 @@ RUN apt-get clean && \
 	#apt-get update -y && \
 
   # Install dependences
-  apt-get install --no-install-recommends -y \
+  DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
   git \
   # add other dependences necessary
   wget \
@@ -25,7 +25,6 @@ RUN apt-get clean && \
   zlib1g-dev \
   python \
   bzip2 \
-  perl \
   rsync && \
   
   # HERE INSTALL NECESSARY SOFTWARE
@@ -39,13 +38,13 @@ RUN apt-get clean && \
   wget ftp://strelka:%27%27@ftp.illumina.com/v1-branch/v1.0.15/strelka_workflow-1.0.15.tar.gz && \
   tar xzf strelka_workflow-1.0.15.tar.gz && \
   cd strelka_workflow-1.0.15 && \
-  ./configure --prefix=/usr/local/ && \
+  sudo ./configure --prefix=/usr/local/ && \
   make && \
   
   # Remove unnecessary dependences
-  apt-get remove -y \
+  DEBIAN_FRONTEND=noninteractive apt-get remove -y \
   git && \
 
   # Clean
-  apt-get autoremove -y && \
+  DEBIAN_FRONTEND=noninteractive con	apt-get autoremove -y && \
   apt-get clean
