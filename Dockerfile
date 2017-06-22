@@ -15,17 +15,17 @@ RUN apt-get clean && \
 	#apt-get update -y && \
 
   # Install dependences
-  #apt-get install --no-install-recommends -y \
-  #git && \
+  apt-get install --no-install-recommends -y \
+  git && \
   # add other dependences necessary
-  #wget \
-  #gcc \
-  #g++ \
-  #make \
-  #zlib1g-dev \
-  #python \
-  #bzip2 \
-  #rsync && \
+  wget \
+  gcc \
+  g++ \
+  make \
+  zlib1g-dev \
+  python \
+  bzip2 \
+  rsync && \
   
   # HERE INSTALL NECESSARY SOFTWARE
   # Example
