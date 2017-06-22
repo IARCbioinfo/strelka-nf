@@ -34,8 +34,8 @@ RUN apt-get clean && \
   # cd **Directory** && \
   # make && \
   # make install && \
-  #wget ftp://strelka:%27%27@ftp.illumina.com/v1-branch/v1.0.15/strelka_workflow-1.0.15.tar.gz && \
- # tar xzf strelka_workflow-1.0.15.tar.gz && \
+  wget ftp://strelka:%27%27@ftp.illumina.com/v1-branch/v1.0.15/strelka_workflow-1.0.15.tar.gz && \
+  tar xzf strelka_workflow-1.0.15.tar.gz && \
  # cd strelka_workflow-1.0.15 && \
  # ./configure --prefix=/usr/local/ && \
  # make && \
@@ -45,5 +45,5 @@ RUN apt-get clean && \
   git && \
 
   # Clean
-  DEBIAN_FRONTEND=noninteractive con	apt-get autoremove -y && \
+  DEBIAN_FRONTEND=noninteractive apt-get autoremove -y && \
   apt-get clean
