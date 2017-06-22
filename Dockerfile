@@ -38,8 +38,8 @@ RUN apt-get clean && \
   tar xzf strelka_workflow-1.0.15.tar.gz && \
   cd strelka_workflow-1.0.15 && \
   ./configure --prefix=/usr/local/ && \
- # make && \
-
+  make && \
+  
   # Remove unnecessary dependences
   DEBIAN_FRONTEND=noninteractive apt-get remove -y \
   git && \
