@@ -26,6 +26,9 @@ RUN apt-get clean && \
   python \
   bzip2 \
   rsync && \
+  
+  apt-get clean && \
+  apt-get update -y && \
 
   # HERE INSTALL NECESSARY SOFTWARE
   # Example
@@ -34,11 +37,11 @@ RUN apt-get clean && \
   # cd **Directory** && \
   # make && \
   # make install && \
-  wget ftp://strelka:%27%27@ftp.illumina.com/v1-branch/v1.0.15/strelka_workflow-1.0.15.tar.gz && \
+  sudo wget ftp://strelka:%27%27@ftp.illumina.com/v1-branch/v1.0.15/strelka_workflow-1.0.15.tar.gz && \
   tar xzf strelka_workflow-1.0.15.tar.gz && \
   cd strelka_workflow-1.0.15 && \
   ./configure --prefix=/usr/local/ && \
-  sudo make && \
+  make && \
   
   # Remove unnecessary dependences
   DEBIAN_FRONTEND=noninteractive apt-get remove -y \
