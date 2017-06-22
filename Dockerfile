@@ -25,6 +25,7 @@ RUN apt-get clean && \
   zlib1g-dev \
   python \
   bzip2 \
+  perl \
   rsync && \
   
   # HERE INSTALL NECESSARY SOFTWARE
